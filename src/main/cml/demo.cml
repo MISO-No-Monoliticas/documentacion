@@ -13,6 +13,7 @@ ContextMap DDDSampleMap {
 	/* Note that the splitting of the LocationContext is not mentioned in the original DDD sample of Evans.
 	 * However, locations and the management around them, can somehow be seen as a separated concept which is used by other
 	 * bounded contexts. But this is just an example, since we want to demonstrate our DSL with multiple bounded contexts.
+	 * test a commit
 	 */
 	CargoBookingContext [D]<-[U,OHS,PL] LocationContext
 
