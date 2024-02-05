@@ -1,0 +1,80 @@
+ContextMap DDD_PDAMap {
+	contains RecopilacionContext
+	contains LimpiezaProcesamientoContext
+	contains ValidacionContext
+	contains EnriquecimientoContext
+	contains HabilitacionContext
+
+	RecopilacionContext [U]->[D] LimpiezaProcesamientoContext
+	RecopilacionContext [U]->[D] ValidacionContext
+	LimpiezaProcesamientoContext [U]->[D] ValidacionContext
+	ValidacionContext [U]->[D] EnriquecimientoContext
+	ValidacionContext [U]->[D] HabilitacionContext
+	EnriquecimientoContext [U]->[D] HabilitacionContext
+}
+
+BoundedContext RecopilacionContext {
+	Module cargo {
+		basePackage = se.pda.ddd.domain.model
+
+		Aggregate CargoItineraryLegDeliveryRouteSpecification {
+			Entity Cargo
+			ValueObject Delivery
+			enum TransportStatus {
+	            NOT_RECEIVED, IN_PORT, ONBOARD_CARRIER, CLAIMED, UNKNOWN
+			}
+		}
+	}
+
+	Module handling {
+		basePackage = se.pda.ddd.domain.model
+		Aggregate Handling {
+			DomainEvent HandlingEvent
+			ValueObject HandlingHistory
+		}
+	}
+}
+
+BoundedContext LimpiezaProcesamientoContext {
+	Module voyage {
+		basePackage = se.pda.ddd.domain.model
+
+		Aggregate Voyage {
+			Entity Voyage
+			ValueObject CarrierMovement
+		}
+	}
+}
+
+BoundedContext ValidacionContext {
+	Module location {
+		basePackage = se.pda.ddd.domain.model
+
+		Aggregate Location {
+			Entity Location
+			ValueObject UnLocode
+		}
+	}
+}
+
+BoundedContext EnriquecimientoContext {
+	Module location1 {
+		basePackage = se.pda.ddd.domain.model
+
+		Aggregate Location1 {
+			Entity Location1
+			ValueObject UnLocode1
+		}
+	}
+}
+
+BoundedContext HabilitacionContext {
+	Module location2 {
+		basePackage = se.pda.ddd.domain.model
+
+		Aggregate Location2 {
+			Entity Location2
+			ValueObject UnLocode2
+		}
+	}
+}

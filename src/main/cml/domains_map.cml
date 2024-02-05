@@ -1,0 +1,69 @@
+Domain GestionDePropiedadesInmobiliarias {
+    domainVisionStatement = "Ser el principal motor de recopilación de datos para propiedades inmobiliarias, 
+    ofreciendo información detallada y actualizada que sirva como base sólida para las decisiones de alquiler, 
+    venta y subarrendamiento en el mercado global."
+  Subdomain RecopilacionDeDatos {
+        type = CORE_DOMAIN
+        domainVisionStatement = "Aspiramos a ser reconocidos por nuestra capacidad de recolección ágil y precisa, 
+        asegurando una base robusta para el análisis y procesamiento subsiguiente."
+        Entity Agente {
+            String nombre
+            String tipo
+        }
+        Entity Informacion {
+            String tipo
+        }
+    }
+    Subdomain ProcesamientoDeDatos {
+        type = CORE_DOMAIN
+        domainVisionStatement = "Liderar la revolución en el procesamiento de datos inmobiliarios con machine learning, 
+        aplicando pipelines inteligentes para garantizar la calidad mediante el 'match' preciso de compañías y ubicaciones."
+        Entity Heuristica {
+            String atributo
+            Float puntosPorCumplimiento
+        }
+        Entity Inmuebles {
+            String datosDeContacto
+            String direccion
+            String propietario
+            Float confiabilidadDeDatos
+        }
+    }
+    Subdomain RefinamientoDeDatos {
+        type = CORE_DOMAIN
+        domainVisionStatement = "Establecernos como la referencia en la industria inmobiliaria en términos de integridad y calidad de datos. 
+        Buscamos ser reconocidos por nuestra rigurosa auditoría y refinamiento continuo, asegurando la confiabilidad de la información que ofrecemos a nuestros clientes."
+        
+        Entity Investigador {
+            String nombre
+        }
+    }
+    Subdomain PresentacionDeDatos {
+        type = CORE_DOMAIN
+        domainVisionStatement = "Ser la plataforma preferida por los usuarios para acceder de manera intuitiva y visual a la información inmobiliaria procesada."
+        
+        Entity Cliente {
+            String nombre
+        }
+    }
+    Subdomain Geolocalizacion {
+        type = GENERIC_SUBDOMAIN
+        domainVisionStatement = "Geolocalizar y delimitar las propiedades que se encuentran dentro de la base de datos de la compañia"
+        
+        Entity Propiedad {
+            String ubicacion
+            String area
+            String tipo
+        }
+    }
+}
+UserStory IngresarInformacionContractual {
+  As an "Empresa con informacion de contratos (Ej. Contratos de los alpes)"
+    I want to "Insertar" a "Informacion de contratos de las propiedades que tengo a mi cargo"
+  so that "Para alimentar la informacion que 'Propiedades de los alpes', tiene de los inmuebles"
+}
+UserStory CompletarInformacionDePropiedades {
+  As an "Investigador de campo"
+    I want to "complementar" a "Informacion faltante" for a "Propiedad"
+  so that "Mantener los datos de las propiedades con una confiablidad mayor al 80%"
+}
