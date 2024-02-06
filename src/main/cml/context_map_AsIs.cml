@@ -1,0 +1,49 @@
+ContextMap DDD_PDAAsIsMap {
+    type SYSTEM_LANDSCAPE
+    state AS_IS
+
+    // Vision statement: Contexto que maneja las entidades externas.
+	contains EntidadesExternasContext
+
+    // Vision statement: Contexto relacionado con la plataforma de datos.
+	contains PlataformaDatosContext
+
+    // Vision statement: Contexto para sistemas de analistas e investigadores.
+	contains SistemaAnalistasInvestigadoresContext
+
+    // Vision statement: Contexto para sistemas B2B.
+	contains SistemasB2BContext
+
+    EntidadesExternasContext [SK] <-> [SK] PlataformaDatosContext {implementationTechnology = "DataBase"}
+    PlataformaDatosContext [SK] <-> [SK] SistemaAnalistasInvestigadoresContext {implementationTechnology = "DataBase"}
+    SistemaAnalistasInvestigadoresContext [SK] <-> [SK] SistemasB2BContext {implementationTechnology = "DataBase"}
+}
+
+BoundedContext EntidadesExternasContext {
+    domainVisionStatement = "Descripciones de los módulos dentro de EntidadesExternasContext"
+    Module InformacionCompanias { basePackage = se.pda.ddd.domain.model }
+    Module InformacionContractual { basePackage = se.pda.ddd.domain.model }
+    Module InformacionGeoespacial { basePackage = se.pda.ddd.domain.model }
+    Module InformacionCatastral { basePackage = se.pda.ddd.domain.model }
+}
+
+BoundedContext PlataformaDatosContext {
+    domainVisionStatement = "Descripciones de los módulos dentro de PlataformaDatosContext"
+    Module CapturaManual { basePackage = se.pda.ddd.domain.model }
+    Module IngestionDatosFuente { basePackage = se.pda.ddd.domain.model }
+    Module ProcesamientoLimpieza { basePackage = se.pda.ddd.domain.model }
+}
+
+BoundedContext SistemaAnalistasInvestigadoresContext {
+    domainVisionStatement = "Descripciones de los módulos dentro de SistemaAnalistasInvestigadoresContext"
+    Module ValidacionDatos { basePackage = se.pda.ddd.domain.model }
+    Module EnrriquecimientoDatos { basePackage = se.pda.ddd.domain.model }
+}
+
+BoundedContext SistemasB2BContext {
+    domainVisionStatement = "Descripciones de los módulos dentro de SistemasB2BContext"
+    Module Analitica { basePackage = se.pda.ddd.domain.model }
+    Module InformacionPropietarios { basePackage = se.pda.ddd.domain.model }
+    Module InformeEstado { basePackage = se.pda.ddd.domain.model }
+    Module TransaccionesVentas { basePackage = se.pda.ddd.domain.model }
+}

@@ -1,0 +1,93 @@
+ContextMap DDD_PDAMap {
+    type SYSTEM_LANDSCAPE
+    state TO_BE
+
+    contains EntidadesExternasContext
+    contains RecopilacionContext
+    contains LimpiezaProcesamientoContext
+    contains ValidacionContext
+    contains EnriquecimientoContext
+    contains HabilitacionContext
+
+    EntidadesExternasContext [U] -> [D, ACL] RecopilacionContext
+    RecopilacionContext [U]->[D] LimpiezaProcesamientoContext
+    RecopilacionContext [U]->[D] ValidacionContext
+    LimpiezaProcesamientoContext [U]->[D] ValidacionContext
+    ValidacionContext [U]->[D] EnriquecimientoContext
+    ValidacionContext [U]->[D] HabilitacionContext
+    EnriquecimientoContext [U]->[D] HabilitacionContext
+}
+
+BoundedContext EntidadesExternasContext {
+    domainVisionStatement = "Contexto que maneja las entidades externas."
+    Module Entidades {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
+
+BoundedContext RecopilacionContext {
+    domainVisionStatement = "Contexto encargado de la recopilación de datos."
+    Module InformacionPublicada {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module DiferenciaDatos {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module InformacionExtraida {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module DatosCampo {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module EnvioDatos {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
+
+BoundedContext LimpiezaProcesamientoContext {
+    domainVisionStatement = "Contexto para el procesamiento y limpieza de datos."
+    Module limpieza {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
+
+BoundedContext ValidacionContext {
+    domainVisionStatement = "Contexto responsable de la validación de datos."
+    Module ValidacionPush {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module ValidacionPull {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
+
+BoundedContext EnriquecimientoContext {
+    domainVisionStatement = "Contexto para el enriquecimiento de datos."
+    Module EnriquecerDatosPush {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module EnriquecerDatosPull {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
+
+BoundedContext HabilitacionContext {
+    domainVisionStatement = "Contexto que se encarga de la habilitación."
+    Module Internacionalizacion {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module Ofuscacion {
+        basePackage = se.pda.ddd.domain.model
+    }
+
+    Module Habilitacion {
+        basePackage = se.pda.ddd.domain.model
+    }
+}
