@@ -57,13 +57,45 @@ Domain GestionDePropiedadesInmobiliarias {
         }
     }
 }
-UserStory IngresarInformacionContractual {
-  As an "Empresa con informacion de contratos (Ej. Contratos de los alpes)"
-    I want to "Insertar" a "Informacion de contratos de las propiedades que tengo a mi cargo"
-  so that "Para alimentar la informacion que 'Propiedades de los alpes', tiene de los inmuebles"
+
+UserStory RecopilacionDeDatosAgenteAutomatizado {
+  As an "Agente Automatizado"
+  I want to "Extraer" a "información sobre compañías desde fuentes externas (websites, APIs, llamadas, etc)"
+  so that "Alimentar la base de datos de 'Propiedades de los Alpes' con datos actualizados y precisos"
 }
-UserStory CompletarInformacionDePropiedades {
-  As an "Investigador de campo"
-    I want to "complementar" a "Informacion faltante" for a "Propiedad"
-  so that "Mantener los datos de las propiedades con una confiablidad mayor al 80%"
+
+UserStory ProcesamientoDeDatosUsuarioSistema {
+  As an "Usuario del Sistema de Procesamiento"
+  I want to "Aplicar" a "pipelines de machine learning para hacer el 'match' preciso entre compañías y ubicaciones"
+  so that "Garantizar la calidad de los datos y ofrecer análisis inmobiliarios confiables"
+}
+
+UserStory RefinamientoDeDatosInvestigadorAuditoria {
+  As an "Investigador de Auditoría"
+  I want to "Verificar" a "registros con un índice de confiabilidad menor al 0.8"
+  so that "Garantizar la integridad y calidad de los datos mediante una auditoría rigurosa"
+}
+
+UserStory PresentacionDeDatosClientePDA {
+  As a "Cliente de PDA"
+  I want to "Acceder" a "manera intuitiva y visual a la información inmobiliaria procesada"
+  so that "Tomar decisiones informadas sobre alquiler, venta o subarrendamiento"
+}
+
+UserStory GeolocalizacionUsuarioGeolocalizacion {
+  As a "Usuario de Geolocalización"
+  I want to "Visualizar y delimitar" a "propiedades dentro de la base de datos de la compañía en un mapa"
+  so that "Entender la ubicación y distribución geográfica de las propiedades"
+}
+
+UserStory IngresarInformacionContractualEmpresaContratos {
+  As an "Empresa con información de contratos"
+  I want to "Insertar" a "información contractual de las propiedades que manejo"
+  so that "Contribuir a la base de datos de 'Propiedades de los Alpes' y mantenerla actualizada"
+}
+
+UserStory CompletarInformacionDePropiedadesInvestigadorCampo {
+  As an "Investigador de Campo"
+  I want to "Complementar" a "información faltante de una propiedad"
+  so that "Mantener la confiabilidad de los datos por encima del 80% y garantizar su exactitud"
 }
