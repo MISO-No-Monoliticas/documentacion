@@ -24,11 +24,11 @@
 
 ## Estructura del proyecto
 
-- cml
+- src/main/cml
   - context_map_AsIs.cml
   - context_map_ToBe.cml
   - domains_map.cml
-- diagramas
+- src/main/diagramas
   - Lenguaje ubicuo (EventStorming) - AS IS.pdf
   - Lenguaje ubicuo (EventStorming) - TO BE.pdf
   - context_map_AsIs_ContextMap.png
